@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 public class RoomTest {
     @Test
-    void checkIn_Should_Occupy_And_DirtyRoom(){
+   public void checkIn_Should_Occupy_And_DirtyRoom(){
         //Arrange
         Room room = new Room(150, 139.00 );
         //Act
@@ -15,4 +15,14 @@ public class RoomTest {
 
 
     }
+    @Test
+    public void checkOut_ShouldNot_Occupy_And_DirtyRoom(){
+        Room room = new Room(2,139);
+
+        room.checkOut();
+
+        assertTrue(room.isDirty());
+        assertFalse(room.isOccupied());
+    }
+
 }
